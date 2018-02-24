@@ -25,4 +25,19 @@ module.exports = function(app){
                 res.send('404 not found')
         }
     })
+
+    app.post('/api/tables',function(req,res){
+        if(tables.length<5){
+            tables.push(req.body);
+            res.json(true)
+        }else{
+            waitList.push(req.body);
+            res.json(false)
+        }
+    })
+    app.post('/api/clear', function(){
+        tables=[];
+        waitList=[];
+    })
+
 }
