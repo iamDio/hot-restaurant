@@ -27,6 +27,9 @@ module.exports = function(app){
     })
 
     app.post('/api/tables',function(req,res){
+        console.log('isthis shit even running?')
+        console.log(req.body)
+
         if(tables.length<5){
             tables.push(req.body);
             res.json(true)
